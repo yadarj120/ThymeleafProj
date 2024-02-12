@@ -9,6 +9,7 @@ public class ThymeleafProjApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(ThymeleafProjApplication.class, args);
+        System.out.println("The project is running");
     }
 
 }

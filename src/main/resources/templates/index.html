@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/tutorial"><img src="brand-logo.png" alt="Project Icon" width="150" height="90"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Tutorials <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/new">Add</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Search bar -->
+<div class="container mt-4">
+    <form onchange="onsubmit()" class="input-group mb-3">
+
+            <input type="text" class="form-control" placeholder="Search by title..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Clear</button>
+            </div>
+
+    </form>
+</div>
+
+<!-- Tabular structure -->
+<div class="container mt-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Published</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tutorial, iterStat : ${tutorials}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${tutorial.title}"></td>
+            <td th:text="${#strings.substring(tutorial.description, 0, tutorial.description.length() lt 50 ? tutorial.description.length() : 50)}"></td>
+            <td th:text="${tutorial.published} ? 'Yes' : 'No'"></td>
+
+            <td>
+                <a href="#" class="btn btn-primary" role="button">Edit</a>
+                <a href="#" class="btn btn-danger" role="button">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
