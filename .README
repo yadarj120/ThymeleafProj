@@ -1,0 +1,81 @@
+Spring Boot Thymeleaf Tutorial Project
+This project serves as a demonstration of building a Spring Boot application with Thymeleaf templates, utilizing features such as database interaction with JPA, form handling, session management, and more.
+
+Project Structure
+The ideal project structure for a Spring Boot Thymeleaf project with MySQL database might look like this:
+
+spring-boot-thymeleaf-tutorial/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── demo/
+│   │   │               ├── controller/
+│   │   │               │   └── TutorialController.java
+│   │   │               ├── model/
+│   │   │               │   └── Tutorial.java
+│   │   │               ├── repository/
+│   │   │               │   └── TutorialRepository.java
+│   │   │               └── service/
+│   │   │                   └── TutorialService.java
+│   │   ├── resources/
+│   │   │   ├── static/
+│   │   │   │   ├── css/
+│   │   │   │   │   └── style.css
+│   │   │   │   └── js/
+│   │   │   │       └── script.js
+│   │   │   └── templates/
+│   │   │       ├── index.html
+│   │   │       └── tutorial-form.html
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── demo/
+│                       └── controller/
+│                           └── TutorialControllerTest.java
+└── pom.xml
+
+
+Getting Started
+To run the project locally, follow these steps:
+
+Clone the repository:
+
+
+git clone <repository-url>
+Navigate to the project directory:
+
+cd spring-boot-thymeleaf-tutorial
+Ensure you have MySQL installed and running locally.
+
+Configure the database connection details in src/main/resources/application.properties.
+
+Build and run the application using Maven:
+
+
+mvn spring-boot:run
+Access the application at http://localhost:8081.
+
+Features
+Search Functionality
+The project includes a search functionality that watches for changes in the form data and performs a search after every change. It utilizes JavaScript event listeners and debounce technique to wait for a certain period before calling the search function.
+
+Thymeleaf Templates
+Thymeleaf is used for server-side rendering of HTML templates. The project includes templates for displaying tutorials and a form for creating or editing tutorials.
+
+JPA Data Access
+The project interacts with a MySQL database using JPA (Java Persistence API). It includes repository interfaces for CRUD operations on tutorial entities.
+
+Session Management
+Session attributes are managed using Spring Session, allowing for the storage and retrieval of session data across multiple requests.
+
+Contributors
+Arjun Yadav
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
